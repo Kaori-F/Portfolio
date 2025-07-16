@@ -1,0 +1,449 @@
+/* Base styles */
+:root {
+    --primary-font: 'Noto Sans JP', sans-serif;
+    --text-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 探しやすくするために、既存のbodyスタイルを一度削除し、以下を貼り付けてください */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--primary-font);
+    color: var(--text-color);
+    background-color: #0A051A; /* 基本の背景色 */
+    background-image: 
+        /* 紫色のオーロラを追加 */
+        radial-gradient(ellipse at 70% 30%, rgba(120, 80, 200, 0.25) 0%, transparent 60%),
+        /* ピンク色のオーロラを追加 */
+        radial-gradient(ellipse at 30% 70%, rgba(200, 80, 150, 0.2) 0%, transparent 50%),
+        /* 元々の星空を追加 */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 100 100"><g fill="%23FFFFFF" fill-opacity="0.1"><circle cx="10" cy="10" r="0.5"/><circle cx="20" cy="25" r="0.3"/><circle cx="30" cy="15" r="0.2"/><circle cx="40" cy="30" r="0.4"/><circle cx="50" cy="10" r="0.2"/><circle cx="60" cy="20" r="0.3"/><circle cx="70" cy="35" r="0.3"/><circle cx="80" cy="15" r="0.4"/><circle cx="90" cy="25" r="0.2"/><circle cx="5" cy="45" r="0.3"/><circle cx="15" cy="60" r="0.2"/><circle cx="25" cy="50" r="0.4"/><circle cx="35" cy="65" r="0.2"/><circle cx="45" cy="55" r="0.3"/><circle cx="55" cy="70" r="0.3"/><circle cx="65" cy="50" r="0.4"/><circle cx="75" cy="65" r="0.2"/><circle cx="85" cy="55" r="0.3"/><circle cx="95" cy="70" r="0.2"/><circle cx="10" cy="85" r="0.4"/><circle cx="20" cy="75" r="0.2"/><circle cx="30" cy="90" r="0.3"/><circle cx="40" cy="80" r="0.3"/><circle cx="50" cy="95" r="0.2"/><circle cx="60" cy="85" r="0.4"/><circle cx="70" cy="75" r="0.2"/><circle cx="80" cy="90" r="0.3"/><circle cx="90" cy="80" r="0.2"/></g></svg>');
+    background-attachment: fixed;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* 3D Scene */
+.scene {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* ホームページ背景 */
+body.home {
+    background-image: url('../images/home-visual.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* 星屑アニメーション */
+.stardust {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.star {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 2px;
+    height: 2px;
+    animation: twinkle 5s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+/* Stars, Particles, and Crystal Shards */
+.stars, .particles, .crystal-shards {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Main Content */
+.content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    font-weight: 100;
+    font-size: 3.5rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.enter-link {
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.enter-link:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.enter-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.enter-link:hover::before {
+    transform: translateX(100%);
+}
+
+/* Audio Control */
+.audio-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#audio-toggle {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+#audio-toggle:hover {
+    opacity: 1;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+#audio-toggle.playing {
+    border-color: rgba(255, 255, 255, 0.5);
+    opacity: 0.8;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+/* Works Page Styles (will be loaded dynamically) */
+.works-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    perspective: 1000px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.work-item {
+    position: relative;
+    height: 300px;
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.work-item:hover {
+    transform: scale(1.05);
+}
+
+.work-shard-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: translateZ(0px);
+    transition: all 0.5s ease;
+}
+
+.work-item:hover .work-shard-container {
+    transform: translateZ(20px);
+}
+
+.work-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 1rem;
+    z-index: 2;
+}
+
+.work-item:hover .work-details {
+    opacity: 1;
+}
+
+.work-title {
+    font-weight: 300;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* Transition Animation */
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.key-visual {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1001;
+    opacity: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .works-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .work-item {
+        height: 200px;
+    }
+}
+
+/* --- Works Page - Image Shard Styles --- */
+
+.works-container {
+    position: relative; /* 子要素を絶対位置で配置するための基準 */
+    width: 100%;
+    max-width: 1200px;
+    height: 60vh; /* 表示領域の高さを確保 */
+    margin: 0 auto;
+}
+
+.shard-item {
+    position: absolute; /* 各シャードを絶対位置で配置 */
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.2)); /* 影を落として立体感を出す */
+}
+
+.shard-image {
+    width: 100%;
+    height: auto;
+}
+
+.shard-item:hover {
+    transform: scale(1.15) !important; /* ホバー時に拡大（!importantで他のスタイルを上書き） */
+    filter: drop-shadow(0px 0px 15px rgba(255, 105, 180, 0.8)); /* ホバー時にピンクの光を放つ */
+    z-index: 100; /* ホバーしたアイテムが最前面に来るように */
+}
+
+/* 各シャードの初期位置、大きさ、角度をランダムに設定 */
+.shard-item:nth-child(1) {
+    width: 20%; top: 10%; left: 15%; transform: rotate(-15deg);
+}
+.shard-item:nth-child(2) {
+    width: 25%; top: 50%; left: 5%; transform: rotate(20deg);
+}
+.shard-item:nth-child(3) {
+    width: 22%; top: 20%; left: 60%; transform: rotate(5deg);
+}
+.shard-item:nth-child(4) {
+    width: 18%; top: 65%; left: 75%; transform: rotate(-25deg);
+}
+.shard-item:nth-child(5) {
+    width: 28%; top: 55%; left: 35%; transform: rotate(10deg);
+}
+/* --- Category Page Styles --- */
+
+.category-page {
+    justify-content: flex-start; /* 上からコンテンツを配置 */
+    padding: 4rem 2rem;
+    height: auto; /* 高さを自動に */
+}
+
+.category-header {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 3rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1.5rem;
+}
+
+.category-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.back-to-shards-link {
+    color: var(--text-color);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.back-to-shards-link:hover {
+    opacity: 1;
+}
+
+.category-grid {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    /* 画面幅に応じて列数を自動調整 */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.category-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden; /* 角を丸くするため */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.category-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 0.5rem;
+}
+
+/* --- Modal / Lightbox Styles --- */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-content {
+    position: relative;
+    z-index: 1001;
+    max-width: 80vw;
+    max-height: 80vh;
+    text-align: center;
+}
+
+#modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+#modal-caption {
+    color: #ffffff;
+    font-size: 1rem;
+}

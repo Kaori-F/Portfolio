@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaori's Portfolio | Crystal Shard</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400&display=swap" rel="stylesheet">
+</head>
+<body class="home">
+    <div class="audio-control">
+        <button id="audio-toggle" aria-label="Toggle audio">
+            <span class="audio-icon">♪</span>
+        </button>
+    </div>
+    
+    <!-- 星屑アニメーションレイヤー -->
+    <div class="stardust" id="stardust"></div>
+
+    <div class="scene">
+        <!-- 3D background with stars and particles -->
+        <div class="stars"></div>
+        <div class="particles"></div>
+        <div class="crystal-shards"></div>
+        
+        <!-- Main content -->
+        <main class="content">
+            <h1>Kaori's Portfolio</h1>
+            <a href="#" class="enter-link" id="enter-void">Enter the Void</a>
+        </main>
+    </div>
+
+    <!-- Audio element for background music -->
+    <audio id="background-music" loop>
+        <source src="assets/audio/ambient.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r132/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="assets/js/background.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/stardust.js"></script>
+</body>
+</html>
