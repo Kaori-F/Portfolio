@@ -371,9 +371,9 @@ h1 {
 .category-grid {
     width: 100%;
     max-width: 1200px;
-    display: grid;
-    /* 画面幅に応じて列数を自動調整 */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex; /* gridからflexに変更 */
+    flex-wrap: wrap; /* これを追加 */
+    flex-direction: row-reverse; /* ★これが、並び順を逆にする魔法の1行です */
     gap: 2rem;
 }
 
