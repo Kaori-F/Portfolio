@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category | Kaori's Portfolio</title>
+    <title>SWC | Kaori's Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,23 +14,31 @@
 
     <main class="content category-page">
         <header class="category-header">
-            <h1 class="category-title">Category Name</h1>
+            <h1 class="category-title">SWC Member Illustrations</h1>
             <a href="works.html" class="back-to-shards-link">← Back to Shards</a>
         </header>
-        
-        <div class="category-grid">
-            <div class="category-item">
-                <img src="https://via.placeholder.com/400x300" alt="作品のサンプル画像1">
-            </div>
-            <div class="category-item">
-                <img src="https://via.placeholder.com/300x400" alt="作品のサンプル画像2">
-            </div>
-            <div class="category-item">
-                <img src="https://via.placeholder.com/400x400" alt="作品のサンプル画像3">
-            </div>
-            </div>
-    </main>
 
+        <h2 class="category-subheader">Birthday Arts</h2>
+        <div class="category-grid">
+            </div>
+
+        <h2 class="category-subheader">Portraits of Friends</h2>
+        <div class="category-grid">
+            </div>
+
+        <h2 class="category-subheader">Playground</h2>
+        <div class="category-grid">
+            </div>
+
+    </main>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <img id="modal-image" src="" alt="拡大画像">
+            <p id="modal-caption"></p>
+        </div>
+        <div class="modal-background"></div>
+    </div>
     <div class="audio-control">
         <button id="audio-toggle" aria-label="Toggle audio">
             <span class="audio-icon">♪</span>
@@ -41,5 +49,6 @@
     </audio>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/modal.js"></script>
 </body>
 </html>

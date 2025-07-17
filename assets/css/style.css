@@ -447,3 +447,16 @@ h1 {
     color: #ffffff;
     font-size: 1rem;
 }
+
+/* --- Category Subheader Styles --- */
+.category-subheader {
+    width: 100%;
+    max-width: 1200px;
+    margin: 4rem 0 1.5rem 0; /* 上に余白を多めに取ってセクションを区切る */
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
